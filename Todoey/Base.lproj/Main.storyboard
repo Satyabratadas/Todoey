@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Todoey" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQa-Kl-X8S" userLabel="ContentView">
+                                <rect key="frame" x="0.0" y="244" width="414" height="418"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UserIcon (1)" translatesAutoresizingMaskIntoConstraints="NO" id="8Oz-Mi-lSw">
+                                        <rect key="frame" x="30" y="42" width="80" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="passkey" translatesAutoresizingMaskIntoConstraints="NO" id="H8f-xl-kiu">
+                                        <rect key="frame" x="30" y="119" width="80" height="69"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fz0-7G-Apa">
+                                        <rect key="frame" x="118" y="136" width="259" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRW-7s-OPK">
+                                        <rect key="frame" x="118" y="59" width="259" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gE-DA-tWf">
+                                        <rect key="frame" x="142" y="204" width="131" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Login">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pKP-dz-L1d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <constraints>
+                            <constraint firstItem="zQa-Kl-X8S" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0zA-s7-EtH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zQa-Kl-X8S" secondAttribute="bottom" constant="200" id="Cds-ku-Jvb"/>
+                            <constraint firstAttribute="bottom" secondItem="zQa-Kl-X8S" secondAttribute="bottom" id="Hyg-4Z-Nb3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zQa-Kl-X8S" secondAttribute="trailing" constant="211" id="KqR-5H-xf1"/>
+                            <constraint firstItem="zQa-Kl-X8S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="211" id="MjP-aQ-gy3"/>
+                            <constraint firstItem="zQa-Kl-X8S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="NcZ-1V-DK4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zQa-Kl-X8S" secondAttribute="trailing" constant="210" id="Obt-aF-ohf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zQa-Kl-X8S" secondAttribute="bottom" constant="211" id="WrN-B1-voo"/>
+                            <constraint firstItem="zQa-Kl-X8S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="211" id="cNk-cQ-dU8"/>
+                            <constraint firstItem="zQa-Kl-X8S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jb8-dQ-4vg"/>
+                            <constraint firstItem="zQa-Kl-X8S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="210" id="uns-JP-Y5K"/>
+                            <constraint firstItem="zQa-Kl-X8S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ylD-OH-azZ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Cds-ku-Jvb"/>
+                                <exclude reference="KqR-5H-xf1"/>
+                                <exclude reference="Obt-aF-ohf"/>
+                                <exclude reference="WrN-B1-voo"/>
+                                <exclude reference="0zA-s7-EtH"/>
+                                <exclude reference="Hyg-4Z-Nb3"/>
+                                <exclude reference="MjP-aQ-gy3"/>
+                                <exclude reference="NcZ-1V-DK4"/>
+                                <exclude reference="cNk-cQ-dU8"/>
+                                <exclude reference="jb8-dQ-4vg"/>
+                                <exclude reference="uns-JP-Y5K"/>
+                                <exclude reference="ylD-OH-azZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="Obt-aF-ohf"/>
+                                <include reference="Hyg-4Z-Nb3"/>
+                                <include reference="uns-JP-Y5K"/>
+                                <include reference="ylD-OH-azZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Cds-ku-Jvb"/>
+                                <include reference="0zA-s7-EtH"/>
+                                <include reference="NcZ-1V-DK4"/>
+                                <include reference="jb8-dQ-4vg"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="KqR-5H-xf1"/>
+                                <include reference="WrN-B1-voo"/>
+                                <include reference="MjP-aQ-gy3"/>
+                                <include reference="cNk-cQ-dU8"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-461" y="50"/>
+        </scene>
+        <!--User List View Controller-->
+        <scene sceneID="jd3-oX-pjR">
+            <objects>
+                <viewController storyboardIdentifier="userListViewController" id="HJp-sH-fnZ" customClass="userListViewController" customModule="Todoey" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2gA-3z-63v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="EgC-g2-S8F"/>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eq9-qd-L7H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="586.95652173913049" y="49.553571428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="UserIcon (1)" width="166.5" height="166.5"/>
+        <image name="passkey" width="166.5" height="166.5"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
