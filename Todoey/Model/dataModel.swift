@@ -7,38 +7,38 @@
 
 import Foundation
 
-struct UserDetails:Decodable{
-    let id : Int
-    let name : String
-    let username : String
-    let email : String
-    let phone : String
-    let website : String
-    let address : Address
-    let company : Company
+struct UserDetails:Codable{
+    var id : Int
+    var name : String
+    var username : String
+    var email : String
+    var phone : String
+    var website : String
+    var address : Address
+    var company : Company
 }
 
-struct Address : Decodable{
-    let street : String
-    let suite : String
-    let city : String
-    let zipcode : String
+struct Address : Codable{
+    var street : String
+    var suite : String
+    var city : String
+    var zipcode : String
 }
-struct Company : Decodable{
-    let cname : String
-    let catchPhrase : String
-    let bs : String
+struct Company : Codable{
+    var cname : String
+    var catchPhrase : String
+    var bs : String
 }
 
-struct ToDo : Decodable{
-    let id : Int
-    let tid : Int
-    let title : String
-    let complete : Bool
+struct ToDo : Codable{
+    var id : Int
+    var tid : Int
+    var title : String
+    var complete : Bool
 }
-struct Post : Decodable{
-    let id : Int
-    let pid : Int
-    let title : String
-    let body : String
+struct Post : Codable{
+    var id : Int
+    var pid : Int
+    var title : String
+    var body : String
 }
