@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController,UIAlertViewDelegate {
-    
+   
     
     @IBOutlet weak var username_Input: UITextField!
     @IBOutlet weak var passward_Input: UITextField!
@@ -21,6 +21,8 @@ class ViewController: UIViewController,UIAlertViewDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         view.addGestureRecognizer(tap)
         view.isUserInteractionEnabled = true
+        viewDidAppear(true)
+        
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
@@ -34,6 +36,8 @@ class ViewController: UIViewController,UIAlertViewDelegate {
             let vc = mainStoryboard.instantiateViewController(withIdentifier: "userListViewController")
             vc.modalPresentationStyle = .fullScreen
             show(vc, sender: self)
+            
+
         }else{
            alertMessageOk()
         }

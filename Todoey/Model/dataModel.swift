@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct UserDetails:Codable{
+struct UserDetails : Codable{
+    let list : [UserList]
+}
+
+struct UserList:Codable{
     var id : Int
     var name : String
     var username : String
