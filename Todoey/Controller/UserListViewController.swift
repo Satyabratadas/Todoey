@@ -8,17 +8,22 @@
 import UIKit
 
 class UserListViewController: UIViewController,UITableViewDataSource {
-    let tableViewData = Array(repeating: "Item", count: 10)
+//    let tableViewData = Array(repeating: "Item", count: 10)
     
-    
-    
+    let url = "https://jsonplaceholder.typicode.com/users"
+    let datamanager = dataModelManager()
+    var details: [UserDetails] = []
     
 
     @IBOutlet weak var userListTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.userListTableView.dataSource = self
-
+        self.datamanager.userRequest(url: url) { result in
+//            print(result)
+//            self.details.append(UserDetails( id: <#Int#>, name: <#T##String#>, username: <#T##String#>, email: <#T##String#>, address: <#T##Address#>, phone: <#T##String#>, website: <#T##String#>, company: <#T##Company#>))
+        }// send the url for api call
+        
       
     }
 
@@ -30,7 +35,7 @@ class UserListViewController: UIViewController,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 0
         
     }
     
@@ -43,5 +48,5 @@ class UserListViewController: UIViewController,UITableViewDataSource {
                 
     }
     
-
+    
 }

@@ -7,19 +7,26 @@
 
 import Foundation
 
-struct UserDetails : Codable{
-    let list : [UserList]
+struct UserDetailsArray:Codable{
+    let array : [UserDetails]
 }
 
-struct UserList:Codable{
+
+
+struct UserDetails:Codable{
     var id : Int
     var name : String
     var username : String
     var email : String
+    var address : Address
     var phone : String
     var website : String
-    var address : Address
     var company : Company
+    
+}
+struct Geo : Codable{
+    var lat : String
+    var lng : String
 }
 
 struct Address : Codable{
@@ -27,6 +34,7 @@ struct Address : Codable{
     var suite : String
     var city : String
     var zipcode : String
+    var geo : Geo
 }
 struct Company : Codable{
     var cname : String
