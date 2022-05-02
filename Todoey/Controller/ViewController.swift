@@ -31,16 +31,16 @@ class ViewController: UIViewController,UIAlertViewDelegate {
 
     @IBAction func loginPressed(_ sender: UIButton) {
        
-        if username_Input.text == "Satya" && passward_Input.text == "12345"{
+//        if username_Input.text == "Satya" && passward_Input.text == "12345"{
             let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             let vc = mainStoryboard.instantiateViewController(withIdentifier: "userListViewController")
             vc.modalPresentationStyle = .fullScreen
             show(vc, sender: self)
             
 
-        }else{
-           alertMessageOk()
-        }
+//        }else{
+//           alertMessageOk()
+//        }
     }
     
     func alertMessageOk() {

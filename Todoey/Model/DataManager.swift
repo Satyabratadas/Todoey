@@ -20,9 +20,7 @@ class dataModelManager{
                       print(error?.localizedDescription ?? "Response Error")
                       return }
                 do{
-                    //here dataResponse received from a network request
                    if let jsonResponse = try JSONSerialization.jsonObject(with:dataResponse, options: []) as? [[String:Any]] {
-                    print(jsonResponse) //Response result
                     onSuccess(jsonResponse )
                    }
                  } catch let parsingError {
@@ -34,16 +32,8 @@ class dataModelManager{
         
     }
     
+
     
-    
-    func parseUserDetails(data : Data){
-        let decoder = JSONDecoder()
-        
-        
-
-
-
-    }
    
 
     }

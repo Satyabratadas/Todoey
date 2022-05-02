@@ -14,16 +14,42 @@ class UserListViewController: UIViewController,UITableViewDataSource {
     let datamanager = dataModelManager()
     var details: [UserDetails] = []
     
+    
+    
 
     @IBOutlet weak var userListTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.userListTableView.dataSource = self
         self.datamanager.userRequest(url: url) { result in
-//            print(result)
-//            self.details.append(UserDetails( id: <#Int#>, name: <#T##String#>, username: <#T##String#>, email: <#T##String#>, address: <#T##Address#>, phone: <#T##String#>, website: <#T##String#>, company: <#T##Company#>))
+            
+           
+            
+            for item in result {
+//                print("item \(item["address"])")
+                let address = item["address"] as? [String:Any]
+                let addressList = Address(street: address?["street"] as? String  , suite:address?["suite"] as? String , city:address?["city"] as? String , zipcode: address?["zipcode"] as? String )
+                
+                let companyList = Company(cname: item["name"] as? String, catchPhrase: item["catchPhrase"] as? String, bs: item["bs"] as? String)
+                
+                
+//
+//
+                let detailsItem = UserDetails(id: item["id"] as! Int, name: item["name"] as? String, username: item["username"] as? String, email: item["email"] as? String, address: addressList , phone: item["phone"] as? String, website: item["website"] as? String, company: companyList)
+                self.details.append(detailsItem)
+                
+                
+            }
+            print(self.details.count)
+            
+            for (_,_p) in self.details.enumerated(){
+                print(_p.address)
+            }
+//
+            
         }// send the url for api call
         
+       
       
     }
 
@@ -47,6 +73,7 @@ class UserListViewController: UIViewController,UITableViewDataSource {
         return cell
                 
     }
+    
     
     
 }
