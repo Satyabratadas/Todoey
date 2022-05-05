@@ -17,7 +17,11 @@ class ViewController: UIViewController,UIAlertViewDelegate {
     
 
     override func viewDidLoad() {
+        
+
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.title = ""
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         view.addGestureRecognizer(tap)
         view.isUserInteractionEnabled = true
@@ -37,6 +41,9 @@ class ViewController: UIViewController,UIAlertViewDelegate {
             vc.modalPresentationStyle = .fullScreen
             show(vc, sender: self)
             
+
+        
+
 
 //        }else{
 //           alertMessageOk()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserListViewController: UIViewController,UITableViewDataSource {
+class UserListViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 //    let tableViewData = Array(repeating: "Item", count: 10)
     
     let url = "https://jsonplaceholder.typicode.com/users"
@@ -19,38 +19,33 @@ class UserListViewController: UIViewController,UITableViewDataSource {
 
     @IBOutlet weak var userListTableView: UITableView!
     override func viewDidLoad() {
+        self.navigationItem.setHidesBackButton(true, animated: true)
+
         super.viewDidLoad()
-        self.userListTableView.dataSource = self
-        self.datamanager.userRequest(url: url) { result in
-            
-           
-            
-            for item in result {
-//                print("item \(item["address"])")
-                let address = item["address"] as? [String:Any]
-                let addressList = Address(street: address?["street"] as? String  , suite:address?["suite"] as? String , city:address?["city"] as? String , zipcode: address?["zipcode"] as? String )
-                
-                let companyList = Company(cname: item["name"] as? String, catchPhrase: item["catchPhrase"] as? String, bs: item["bs"] as? String)
-                
-                
-//
-//
-                let detailsItem = UserDetails(id: item["id"] as! Int, name: item["name"] as? String, username: item["username"] as? String, email: item["email"] as? String, address: addressList , phone: item["phone"] as? String, website: item["website"] as? String, company: companyList)
-                self.details.append(detailsItem)
-                
-                
-            }
-            print(self.details.count)
-            
-            for (_,_p) in self.details.enumerated(){
-                print(_p.address)
-            }
-//
-            
-        }// send the url for api call
+        
+
+
         
        
-      
+//      Api call and recive the response
+        self.datamanager.userRequest(url: url) { result in
+            for item in result {
+                let address = item["address"] as? [String:Any]
+                let addressList = Address(street: address?["street"] as? String  , suite:address?["suite"] as? String , city:address?["city"] as? String , zipcode: address?["zipcode"] as? String )
+                let company = item["company"] as? [String:Any]
+                let companyList = Company(cname: company?["name"] as? String, catchPhrase: company?["catchPhrase"] as? String, bs: company?["bs"] as? String)
+                let detailsItem = UserDetails(id: item["id"] as! Int, name: item["name"] as? String, username: item["username"] as? String, email: item["email"] as? String, address: addressList , phone: item["phone"] as? String, website: item["website"] as? String, company: companyList)
+                self.details.append(detailsItem)
+            }
+            
+            DispatchQueue.main.async {
+//                self.userListTableView.dataSource = self
+//                self.userListTableView.delegate = self
+                self.userListTableView.reloadData()
+            }
+            
+    }
+       
     }
 
     @IBAction func logoutBtn(_ sender: UIButton) {
@@ -61,17 +56,24 @@ class UserListViewController: UIViewController,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-        
+        return self.details.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       // return UITableViewCell()
-        
-        let cell:UserListCell = self.userListTableView.dequeueReusableCell(withIdentifier: "UserListCell") as! UserListCell
-        cell.userName.text = "test"
+       
+        let cell = tableView.dequeueReusableCell( withIdentifier: "UserListCell", for: indexPath)
+        cell.selectionStyle = .none
+        cell.textLabel!.text = details[indexPath.row].name
         return cell
                 
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let newVc = self.storyboard!.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
+
+        newVc.title = details[indexPath.row].name
+        self.navigationController?.pushViewController(newVc, animated:true)
+        //tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
