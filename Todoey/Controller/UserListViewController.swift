@@ -36,6 +36,9 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
                 let companyList = Company(cname: company?["name"] as? String, catchPhrase: company?["catchPhrase"] as? String, bs: company?["bs"] as? String)
                 let detailsItem = UserDetails(id: item["id"] as! Int, name: item["name"] as? String, username: item["username"] as? String, email: item["email"] as? String, address: addressList , phone: item["phone"] as? String, website: item["website"] as? String, company: companyList)
                 self.details.append(detailsItem)
+                
+                
+
             }
             
             DispatchQueue.main.async {
@@ -72,7 +75,9 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
         let newVc = self.storyboard!.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
 
         newVc.title = details[indexPath.row].name
+        newVc.userDetails = details[indexPath.row]
         self.navigationController?.pushViewController(newVc, animated:true)
+        
         //tableView.deselectRow(at: indexPath, animated: true)
     }
     

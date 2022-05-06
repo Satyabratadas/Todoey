@@ -8,9 +8,11 @@
 import UIKit
 
 class UserDetailsViewController: UIViewController {
-
+    var userDetails : UserDetails?
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(userDetails?.id)
+        
 
         // Do any additional setup after loading the view.
     }
