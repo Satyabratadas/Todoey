@@ -13,18 +13,19 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
     let url = "https://jsonplaceholder.typicode.com/users"
     let datamanager = dataModelManager()
     var details: [UserDetails] = []
-    
-    
-    
 
     @IBOutlet weak var userListTableView: UITableView!
     override func viewDidLoad() {
         self.navigationItem.setHidesBackButton(true, animated: true)
-
         super.viewDidLoad()
-        
-
-
+        let rightButtonItem = UIBarButtonItem.init(
+              title: "Log-out",
+              style: .plain,
+              target: self,
+              action: #selector(logoutBtnaction(sender:))
+        )
+        self.navigationItem.rightBarButtonItem = rightButtonItem
+        rightButtonItem.tintColor = UIColor.black
         
        
 //      Api call and recive the response
@@ -37,27 +38,13 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
                 let detailsItem = UserDetails(id: item["id"] as! Int, name: item["name"] as? String, username: item["username"] as? String, email: item["email"] as? String, address: addressList , phone: item["phone"] as? String, website: item["website"] as? String, company: companyList)
                 self.details.append(detailsItem)
                 
-                
-
             }
             
             DispatchQueue.main.async {
-//                self.userListTableView.dataSource = self
-//                self.userListTableView.delegate = self
                 self.userListTableView.reloadData()
             }
-            
     }
-       
     }
-
-    @IBAction func logoutBtn(_ sender: UIButton) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let vc = mainStoryboard.instantiateViewController(withIdentifier: "firstView")
-        vc.modalPresentationStyle = .fullScreen
-        show(vc, sender: self)
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.details.count;
     }
@@ -80,6 +67,12 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
         
         //tableView.deselectRow(at: indexPath, animated: true)
     }
+    @objc func logoutBtnaction(sender: UIBarButtonItem) {
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let vc = mainStoryboard.instantiateViewController(withIdentifier: "firstView")
+            vc.modalPresentationStyle = .fullScreen
+            show(vc, sender: self)
+        }
     
     
     

@@ -43,13 +43,13 @@ struct Company : Codable{
 }
 
 struct ToDo : Codable{
-    var id : Int
+    var userId : Int
     var tid : Int
     var title : String?
     var complete : Bool?
 }
 struct Post : Codable{
-    var id : Int
+    var userId : Int
     var pid : Int
     var title : String?
     var body : String?

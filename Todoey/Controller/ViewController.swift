@@ -17,9 +17,8 @@ class ViewController: UIViewController,UIAlertViewDelegate {
     
 
     override func viewDidLoad() {
-        
-
         super.viewDidLoad()
+        
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.title = ""
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
@@ -56,6 +55,11 @@ class ViewController: UIViewController,UIAlertViewDelegate {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
        }
-    
+    @objc func logoutBtn() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "firstView")
+        vc.modalPresentationStyle = .fullScreen
+        show(vc, sender: self)
+    }
 }
 
