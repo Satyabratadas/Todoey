@@ -39,6 +39,7 @@ class UserDetailsViewController: UIViewController {
         vc.UserId = (userDetails?.id)!
         show(vc, sender: self)
         vc.title = (userDetails?.name)!
+        vc.users = userDetails
         self.title = "Back"
         
     }

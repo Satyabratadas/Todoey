@@ -65,7 +65,6 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
         newVc.userDetails = details[indexPath.row]
         self.navigationController?.pushViewController(newVc, animated:true)
         
-        //tableView.deselectRow(at: indexPath, animated: true)
     }
     @objc func logoutBtnaction(sender: UIBarButtonItem) {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)

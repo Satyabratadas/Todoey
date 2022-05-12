@@ -8,7 +8,7 @@
 import UIKit
 
 class PostListViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
-
+    var users : UserDetails?
     var UserId : Int = 0
     let urlString = "https://jsonplaceholder.typicode.com/posts"
     let datamanager = dataModelManager()
@@ -45,7 +45,6 @@ class PostListViewController: UIViewController,UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.postDetails.count)
         return self.postDetails.count
     }
     
@@ -57,6 +56,15 @@ class PostListViewController: UIViewController,UITableViewDataSource, UITableVie
         cell.textLabel?.numberOfLines = 2
         cell.textLabel?.lineBreakMode = .byWordWrapping
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let newVc = self.storyboard!.instantiateViewController(withIdentifier: "PostDetailsView") as! PostDetailsViewController
+
+        newVc.titleName = (users?.name)!
+        newVc.PostDetails = postDetails[indexPath.row]
+        self.navigationController?.pushViewController(newVc, animated:true)
+        
     }
     
 //    Create Url string with UserId
