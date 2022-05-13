@@ -30,16 +30,24 @@ class UserDetailsViewController: UIViewController {
     }
     
     @IBAction func todoPressAction(_ sender: UIButton) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc  = mainStoryboard.instantiateViewController(withIdentifier: "TodoListViewController") as! TodoListViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.UserIdtodo = (userDetails?.id)!
+        show(vc, sender: self)
+        vc.title = (userDetails?.name)!
+//        vc.users = userDetails
+        self.title = "Back"
     }
     
     @IBAction func postPressAction(_ sender: UIButton) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let vc  = mainStoryboard.instantiateViewController(withIdentifier: "PostList") as! PostListViewController
-        vc.modalPresentationStyle = .fullScreen
-        vc.UserId = (userDetails?.id)!
-        show(vc, sender: self)
-        vc.title = (userDetails?.name)!
-        vc.users = userDetails
+        let vc2  = mainStoryboard.instantiateViewController(withIdentifier: "PostList") as! PostListViewController
+        vc2.modalPresentationStyle = .fullScreen
+        vc2.UserId = (userDetails?.id)!
+        show(vc2, sender: self)
+        vc2.title = (userDetails?.name)!
+        vc2.users = userDetails
         self.title = "Back"
         
     }
