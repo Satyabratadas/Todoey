@@ -8,7 +8,7 @@
 import UIKit
 
 class UserListViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
-//    let tableViewData = Array(repeating: "Item", count: 10)
+
     
     let url = "https://jsonplaceholder.typicode.com/users"
     let datamanager = dataModelManager()
@@ -51,11 +51,14 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let cell = tableView.dequeueReusableCell( withIdentifier: "UserListCell", for: indexPath)
-        cell.selectionStyle = .none
-        cell.textLabel!.text = details[indexPath.row].name
+        let cell = tableView.dequeueReusableCell( withIdentifier: "UserListCell", for: indexPath) as! UserListCell
+//        cell.selectionStyle = .none
+        cell.userName.text = details[indexPath.row].name
         return cell
                 
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

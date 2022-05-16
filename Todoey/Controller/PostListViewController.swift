@@ -17,7 +17,7 @@ class PostListViewController: UIViewController,UITableViewDataSource, UITableVie
     @IBOutlet weak var postListTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         let rightButtonItem = UIBarButtonItem.init(
               title: "Log-out",
               style: .plain,
@@ -27,6 +27,12 @@ class PostListViewController: UIViewController,UITableViewDataSource, UITableVie
         self.navigationItem.rightBarButtonItem = rightButtonItem
         rightButtonItem.tintColor = UIColor.black
         
+        
+        let backBarButtonItem = UIBarButtonItem(title:"< Back", style: .plain, target: self, action: #selector(backButton(sender:)))
+        self.navigationItem.leftBarButtonItem = backBarButtonItem
+        
+        
+        self.navigationItem.title = users?.name
         let url = userPostRequest()
 //        print(url)
         
@@ -49,12 +55,12 @@ class PostListViewController: UIViewController,UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell( withIdentifier: "PostListCell", for: indexPath)
-        cell.selectionStyle = .none
-        cell.textLabel!.text = postDetails[indexPath.row].title
-        cell.textLabel?.sizeToFit()
-        cell.textLabel?.numberOfLines = 2
-        cell.textLabel?.lineBreakMode = .byWordWrapping
+        let cell = tableView.dequeueReusableCell( withIdentifier: "PostListCell", for: indexPath) as! PostListCell
+        
+        cell.postTitle.text = postDetails[indexPath.row].title
+        cell.postTitle.sizeToFit()
+        cell.postTitle.numberOfLines = 2
+        cell.postTitle.lineBreakMode = .byWordWrapping
         return cell
     }
     
@@ -65,6 +71,9 @@ class PostListViewController: UIViewController,UITableViewDataSource, UITableVie
         newVc.PostDetails = postDetails[indexPath.row]
         self.navigationController?.pushViewController(newVc, animated:true)
         
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
     
 //    Create Url string with UserId
@@ -80,6 +89,10 @@ class PostListViewController: UIViewController,UITableViewDataSource, UITableVie
             vc.modalPresentationStyle = .fullScreen
             show(vc, sender: self)
         }
+    //    back buton function
+    @objc func backButton(sender:UIBarButtonItem){
+        self.navigationController?.popViewController(animated: true)
+    }
 
     
 

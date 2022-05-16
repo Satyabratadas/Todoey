@@ -13,15 +13,21 @@ class UserDetailsViewController: UIViewController {
     @IBOutlet weak var userDetailsText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.hidesBackButton = false
         let rightButtonItem = UIBarButtonItem.init(
               title: "Log-out",
               style: .plain,
               target: self,
               action: #selector(logoutBtnaction(sender:))
         )
+        
+        self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.rightBarButtonItem = rightButtonItem
         rightButtonItem.tintColor = UIColor.black
+        
+        let backBarButtonItem = UIBarButtonItem(title:"< Back", style: .plain, target: self, action: #selector(backButton(sender:)))
+        self.navigationItem.leftBarButtonItem = backBarButtonItem
+        
         userDetailsText.lineBreakMode = .byWordWrapping
         userDetailsText.numberOfLines = 0
         
@@ -34,34 +40,33 @@ class UserDetailsViewController: UIViewController {
         let vc  = mainStoryboard.instantiateViewController(withIdentifier: "TodoListViewController") as! TodoListViewController
         vc.modalPresentationStyle = .fullScreen
         vc.UserIdtodo = (userDetails?.id)!
+
         show(vc, sender: self)
-        vc.title = (userDetails?.name)!
-//        vc.users = userDetails
-        self.title = "Back"
+        
+        vc.todoTitle = (userDetails?.name)!
+
     }
     
     @IBAction func postPressAction(_ sender: UIButton) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let vc2  = mainStoryboard.instantiateViewController(withIdentifier: "PostList") as! PostListViewController
-        vc2.modalPresentationStyle = .fullScreen
         vc2.UserId = (userDetails?.id)!
-        show(vc2, sender: self)
-        vc2.title = (userDetails?.name)!
         vc2.users = userDetails
-        self.title = "Back"
+        vc2.modalPresentationStyle = .fullScreen
+        show(vc2, sender: self)
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.title = userDetails?.name
-    }
+
     @objc func logoutBtnaction(sender: UIBarButtonItem) {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             let vc = mainStoryboard.instantiateViewController(withIdentifier: "firstView")
             vc.modalPresentationStyle = .fullScreen
             show(vc, sender: self)
         }
+    @objc func backButton(sender:UIBarButtonItem){
+        self.navigationController?.popViewController(animated: true)
+    }
 
     
 }

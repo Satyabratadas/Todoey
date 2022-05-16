@@ -11,6 +11,7 @@ class TodoListViewController: UIViewController,UITableViewDataSource, UITableVie
     
     let urlString = "https://jsonplaceholder.typicode.com/todos"
     var UserIdtodo : Int = 0
+    var todoTitle : String = ""
     let dataManager = dataModelManager()
     var todoDetails : [ToDo] = []
 
@@ -25,6 +26,12 @@ class TodoListViewController: UIViewController,UITableViewDataSource, UITableVie
         )
         self.navigationItem.rightBarButtonItem = rightButtonItem
         rightButtonItem.tintColor = UIColor.black
+        
+        let backBarButtonItem = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(backButton(sender:)))
+        self.navigationItem.leftBarButtonItem = backBarButtonItem
+        
+        self.navigationItem.title = todoTitle
+        
         let url = userTodoRequest()
         self.dataManager.userRequest(url: url) { result in
             for item in result {
@@ -42,19 +49,26 @@ class TodoListViewController: UIViewController,UITableViewDataSource, UITableVie
         return self.todoDetails.count;
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let cell = tableView.dequeueReusableCell( withIdentifier: "TodoCellView", for: indexPath)
-        cell.selectionStyle = .none
-        cell.textLabel!.text = todoDetails[indexPath.row].title
-        cell.textLabel?.sizeToFit()
-        cell.textLabel?.numberOfLines = 2
-        cell.textLabel?.lineBreakMode = .byWordWrapping
-//        let complete = todoDetails[indexPath.row].complete
-//        if  (complete == true){
-//            cell.imageView = UIImage.
-//        }
-        return cell
+        let cell = tableView.dequeueReusableCell( withIdentifier: "TodoCellView", for: indexPath) as? TodoCellView
+        cell?.selectionStyle = .none
+        cell?.todoList.text = todoDetails[indexPath.row].title
+        
+        if(todoDetails[indexPath.row].complete  == true){
+            cell?.taskChecked.image = UIImage(named: "CompleteTask")
+        }else{
+            cell?.taskChecked.image = UIImage(named: "IncompleteTask")
+        }
+        return cell!
                 
     }
     
@@ -69,6 +83,11 @@ class TodoListViewController: UIViewController,UITableViewDataSource, UITableVie
             vc.modalPresentationStyle = .fullScreen
             show(vc, sender: self)
         }
+//    back buton function
+    
+    @objc func backButton(sender:UIBarButtonItem){
+        self.navigationController?.popViewController(animated: true)
+    }
     
 
 

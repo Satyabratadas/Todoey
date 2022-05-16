@@ -15,10 +15,10 @@ class PostDetailsViewController: UIViewController {
     @IBOutlet weak var postDetailsText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.leftBarButtonItem?.title = "Back"
+
         self.title = titleName
   
-
+        
         let rightButtonItem = UIBarButtonItem.init(
               title: "Log-out",
               style: .plain,
@@ -27,16 +27,15 @@ class PostDetailsViewController: UIViewController {
         )
         self.navigationItem.rightBarButtonItem = rightButtonItem
         rightButtonItem.tintColor = UIColor.black
+        let backBarButtonItem = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(backButton(sender:)))
+        self.navigationItem.leftBarButtonItem = backBarButtonItem
+        
         postDetailsText.lineBreakMode = .byWordWrapping
         postDetailsText.numberOfLines = 0
         
         postDetailsText.text = "Title:  \((PostDetails?.title)!)\n \nBody:  \((PostDetails?.body)!)"
     }
-//    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.title = titleName
-    }
+
     
     @objc func logoutBtnaction(sender: UIBarButtonItem) {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -44,6 +43,10 @@ class PostDetailsViewController: UIViewController {
             vc.modalPresentationStyle = .fullScreen
             show(vc, sender: self)
         }
+    //    back buton function
+    @objc func backButton(sender:UIBarButtonItem){
+        self.navigationController?.popViewController(animated: true)
+    }
     
 
 }

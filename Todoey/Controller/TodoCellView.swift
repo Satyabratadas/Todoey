@@ -11,7 +11,8 @@ class TodoCellView: UITableViewCell {
     var iscomplete : Bool = false
    
     @IBOutlet weak var todoList: UILabel!
-    @IBOutlet weak var todoTaskImage: UILabel!
+    
+    @IBOutlet weak var taskChecked: UIImageView!
     
 }
 
