@@ -34,8 +34,9 @@ class ViewController: UIViewController,UIAlertViewDelegate {
 
     @IBAction func loginPressed(_ sender: UIButton) {
        
-//        if username_Input.text == "Satya" && passward_Input.text == "12345"{
+        if username_Input.text == "Satya" && passward_Input.text == "12345"{
             let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            UserDefaults.standard.set(username_Input.text, forKey: "userName")
             let vc = mainStoryboard.instantiateViewController(withIdentifier: "userListViewController")
             vc.modalPresentationStyle = .fullScreen
             show(vc, sender: self)
@@ -44,9 +45,9 @@ class ViewController: UIViewController,UIAlertViewDelegate {
         
 
 
-//        }else{
-//           alertMessageOk()
-//        }
+        }else{
+           alertMessageOk()
+        }
     }
     
     func alertMessageOk() {
@@ -55,11 +56,6 @@ class ViewController: UIViewController,UIAlertViewDelegate {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
        }
-    @objc func logoutBtn() {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let vc = mainStoryboard.instantiateViewController(withIdentifier: "firstView")
-        vc.modalPresentationStyle = .fullScreen
-        show(vc, sender: self)
-    }
+    
 }
 

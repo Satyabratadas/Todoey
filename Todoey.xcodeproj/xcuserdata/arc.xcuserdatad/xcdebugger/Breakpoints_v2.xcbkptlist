@@ -30,8 +30,8 @@
             filePath = "Todoey/Controller/UserListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "logoutBtnaction(sender:)"
             landmarkType = "7">
          </BreakpointContent>

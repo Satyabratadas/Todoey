@@ -70,6 +70,7 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
         
     }
     @objc func logoutBtnaction(sender: UIBarButtonItem) {
+            UserDefaults.standard.removeObject(forKey: "userName")
             let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             let vc = mainStoryboard.instantiateViewController(withIdentifier: "firstView")
             vc.modalPresentationStyle = .fullScreen
