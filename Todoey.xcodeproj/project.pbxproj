@@ -8,10 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		2A0C4B8128195FE800F1D04D /* dataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0C4B8028195FE800F1D04D /* dataModel.swift */; };
+		2A32C4CF2848F2BE00CA2FFA /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32C4C52848F2BE00CA2FFA /* Post+CoreDataClass.swift */; };
+		2A32C4D02848F2BE00CA2FFA /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32C4C62848F2BE00CA2FFA /* Post+CoreDataProperties.swift */; };
+		2A32C4D12848F2BE00CA2FFA /* Address+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32C4C72848F2BE00CA2FFA /* Address+CoreDataClass.swift */; };
+		2A32C4D22848F2BE00CA2FFA /* Address+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32C4C82848F2BE00CA2FFA /* Address+CoreDataProperties.swift */; };
+		2A32C4D32848F2BE00CA2FFA /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32C4C92848F2BE00CA2FFA /* Company+CoreDataClass.swift */; };
+		2A32C4D42848F2BE00CA2FFA /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32C4CA2848F2BE00CA2FFA /* Company+CoreDataProperties.swift */; };
+		2A32C4D52848F2BE00CA2FFA /* ToDo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32C4CB2848F2BE00CA2FFA /* ToDo+CoreDataClass.swift */; };
+		2A32C4D62848F2BE00CA2FFA /* ToDo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32C4CC2848F2BE00CA2FFA /* ToDo+CoreDataProperties.swift */; };
+		2A32C4D72848F2BE00CA2FFA /* UserDeatils+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32C4CD2848F2BE00CA2FFA /* UserDeatils+CoreDataClass.swift */; };
+		2A32C4D82848F2BE00CA2FFA /* UserDeatils+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A32C4CE2848F2BE00CA2FFA /* UserDeatils+CoreDataProperties.swift */; };
 		2A95F38E2811826700F8FDF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A95F38D2811826700F8FDF6 /* AppDelegate.swift */; };
 		2A95F3922811826700F8FDF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A95F3912811826700F8FDF6 /* ViewController.swift */; };
 		2A95F3952811826700F8FDF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A95F3932811826700F8FDF6 /* Main.storyboard */; };
-		2A95F3982811826700F8FDF6 /* Todoey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A95F3962811826700F8FDF6 /* Todoey.xcdatamodeld */; };
+		2A95F3982811826700F8FDF6 /* dataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A95F3962811826700F8FDF6 /* dataModel.xcdatamodeld */; };
 		2A95F39A2811826900F8FDF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A95F3992811826900F8FDF6 /* Assets.xcassets */; };
 		2A95F39D2811826900F8FDF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A95F39B2811826900F8FDF6 /* LaunchScreen.storyboard */; };
 		2AB899E82823D48E0001AB80 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB899E72823D48E0001AB80 /* UserDetailsViewController.swift */; };
@@ -27,6 +37,16 @@
 
 /* Begin PBXFileReference section */
 		2A0C4B8028195FE800F1D04D /* dataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataModel.swift; sourceTree = "<group>"; };
+		2A32C4C52848F2BE00CA2FFA /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2A32C4C62848F2BE00CA2FFA /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2A32C4C72848F2BE00CA2FFA /* Address+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Address+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2A32C4C82848F2BE00CA2FFA /* Address+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Address+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2A32C4C92848F2BE00CA2FFA /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2A32C4CA2848F2BE00CA2FFA /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2A32C4CB2848F2BE00CA2FFA /* ToDo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2A32C4CC2848F2BE00CA2FFA /* ToDo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2A32C4CD2848F2BE00CA2FFA /* UserDeatils+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDeatils+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2A32C4CE2848F2BE00CA2FFA /* UserDeatils+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDeatils+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2A95F38A2811826700F8FDF6 /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A95F38D2811826700F8FDF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A95F3912811826700F8FDF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +80,7 @@
 		2A0C4B842819600000F1D04D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2A95F3962811826700F8FDF6 /* dataModel.xcdatamodeld */,
 				2A0C4B8028195FE800F1D04D /* dataModel.swift */,
 				2AC78965281AA9B200EE6866 /* DataManager.swift */,
 			);
@@ -69,6 +90,16 @@
 		2A95F3812811826700F8FDF6 = {
 			isa = PBXGroup;
 			children = (
+				2A32C4C52848F2BE00CA2FFA /* Post+CoreDataClass.swift */,
+				2A32C4C62848F2BE00CA2FFA /* Post+CoreDataProperties.swift */,
+				2A32C4C72848F2BE00CA2FFA /* Address+CoreDataClass.swift */,
+				2A32C4C82848F2BE00CA2FFA /* Address+CoreDataProperties.swift */,
+				2A32C4C92848F2BE00CA2FFA /* Company+CoreDataClass.swift */,
+				2A32C4CA2848F2BE00CA2FFA /* Company+CoreDataProperties.swift */,
+				2A32C4CB2848F2BE00CA2FFA /* ToDo+CoreDataClass.swift */,
+				2A32C4CC2848F2BE00CA2FFA /* ToDo+CoreDataProperties.swift */,
+				2A32C4CD2848F2BE00CA2FFA /* UserDeatils+CoreDataClass.swift */,
+				2A32C4CE2848F2BE00CA2FFA /* UserDeatils+CoreDataProperties.swift */,
 				2A95F38C2811826700F8FDF6 /* Todoey */,
 				2A95F38B2811826700F8FDF6 /* Products */,
 			);
@@ -92,7 +123,6 @@
 				2A95F3992811826900F8FDF6 /* Assets.xcassets */,
 				2A95F39B2811826900F8FDF6 /* LaunchScreen.storyboard */,
 				2A95F39E2811826900F8FDF6 /* Info.plist */,
-				2A95F3962811826700F8FDF6 /* Todoey.xcdatamodeld */,
 			);
 			path = Todoey;
 			sourceTree = "<group>";
@@ -192,16 +222,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A32C4D12848F2BE00CA2FFA /* Address+CoreDataClass.swift in Sources */,
+				2A32C4D82848F2BE00CA2FFA /* UserDeatils+CoreDataProperties.swift in Sources */,
 				2AC78964281A9D1900EE6866 /* UserListCell.swift in Sources */,
+				2A32C4CF2848F2BE00CA2FFA /* Post+CoreDataClass.swift in Sources */,
+				2A32C4D62848F2BE00CA2FFA /* ToDo+CoreDataProperties.swift in Sources */,
 				2AC78966281AA9B200EE6866 /* DataManager.swift in Sources */,
 				A315AA7E282E927A00FFA444 /* TodoCellView.swift in Sources */,
 				A315AA7C282E719500FFA444 /* TodoListViewController.swift in Sources */,
+				2A32C4D42848F2BE00CA2FFA /* Company+CoreDataProperties.swift in Sources */,
 				A33E712C282C69CB00D68E0B /* PostListCell.swift in Sources */,
 				2ADFF5EC2816A7200088C0D9 /* UserListViewController.swift in Sources */,
 				2A95F3922811826700F8FDF6 /* ViewController.swift in Sources */,
+				2A32C4D72848F2BE00CA2FFA /* UserDeatils+CoreDataClass.swift in Sources */,
+				2A32C4D02848F2BE00CA2FFA /* Post+CoreDataProperties.swift in Sources */,
 				A33E7128282BD9F700D68E0B /* PostListViewController.swift in Sources */,
 				2A95F38E2811826700F8FDF6 /* AppDelegate.swift in Sources */,
-				2A95F3982811826700F8FDF6 /* Todoey.xcdatamodeld in Sources */,
+				2A32C4D52848F2BE00CA2FFA /* ToDo+CoreDataClass.swift in Sources */,
+				2A32C4D22848F2BE00CA2FFA /* Address+CoreDataProperties.swift in Sources */,
+				2A32C4D32848F2BE00CA2FFA /* Company+CoreDataClass.swift in Sources */,
+				2A95F3982811826700F8FDF6 /* dataModel.xcdatamodeld in Sources */,
 				A315AA7A282DB5A500FFA444 /* PostDetailsViewController.swift in Sources */,
 				2A0C4B8128195FE800F1D04D /* dataModel.swift in Sources */,
 				2AB899E82823D48E0001AB80 /* UserDetailsViewController.swift in Sources */,
@@ -428,13 +468,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2A95F3962811826700F8FDF6 /* Todoey.xcdatamodeld */ = {
+		2A95F3962811826700F8FDF6 /* dataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				2A95F3972811826700F8FDF6 /* Todoey.xcdatamodel */,
 			);
 			currentVersion = 2A95F3972811826700F8FDF6 /* Todoey.xcdatamodel */;
-			path = Todoey.xcdatamodeld;
+			path = dataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

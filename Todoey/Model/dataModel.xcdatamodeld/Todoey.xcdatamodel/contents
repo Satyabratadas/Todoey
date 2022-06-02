@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F5058e" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Address" representedClassName=".Address" syncable="YES">
+        <attribute name="city" attributeType="String"/>
+        <attribute name="street" attributeType="String"/>
+        <attribute name="suite" attributeType="String"/>
+        <attribute name="zipcode" attributeType="String"/>
+    </entity>
+    <entity name="Company" representedClassName=".Company" syncable="YES">
+        <attribute name="bs" attributeType="String"/>
+        <attribute name="catchPhrase" attributeType="String"/>
+        <attribute name="cname" attributeType="String"/>
+    </entity>
+    <entity name="Post" representedClassName=".Post" syncable="YES">
+        <attribute name="body" attributeType="String"/>
+        <attribute name="pid" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+    </entity>
+    <entity name="ToDo" representedClassName=".ToDo" syncable="YES">
+        <attribute name="complete" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tid" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+    </entity>
+    <entity name="UserDeatils" representedClassName=".UserDeatils" syncable="YES">
+        <attribute name="email" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="phone" attributeType="String"/>
+        <attribute name="username" attributeType="String"/>
+        <attribute name="website" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="UserDeatils" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="Address" positionX="-54" positionY="36" width="128" height="89"/>
+        <element name="Company" positionX="-36" positionY="54" width="128" height="74"/>
+        <element name="ToDo" positionX="-18" positionY="72" width="128" height="74"/>
+        <element name="Post" positionX="0" positionY="90" width="128" height="74"/>
+    </elements>
+</model>

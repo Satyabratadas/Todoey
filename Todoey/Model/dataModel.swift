@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserDetailsArray:Codable{
+/*struct UserDetailsArray:Codable{
     let array : [UserDetails]
 }
 
@@ -54,3 +54,4 @@ struct Post : Codable{
     var title : String?
     var body : String?
 }
+*/
