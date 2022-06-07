@@ -2,7 +2,7 @@
 //  Address+CoreDataProperties.swift
 //  Todoey
 //
-//  Created by ARC on 02/06/22.
+//  Created by ARC on 06/06/22.
 //
 //
 
@@ -16,9 +16,9 @@ extension Address {
         return NSFetchRequest<Address>(entityName: "Address")
     }
 
+    @NSManaged public var city: String?
     @NSManaged public var street: String?
     @NSManaged public var suite: String?
-    @NSManaged public var city: String?
     @NSManaged public var zipcode: String?
 
 }

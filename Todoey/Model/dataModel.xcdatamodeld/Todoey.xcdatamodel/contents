@@ -21,19 +21,18 @@
         <attribute name="tid" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
     </entity>
-    <entity name="UserDeatils" representedClassName=".UserDeatils" syncable="YES">
-        <attribute name="email" attributeType="String"/>
-        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" attributeType="String"/>
-        <attribute name="phone" attributeType="String"/>
-        <attribute name="username" attributeType="String"/>
-        <attribute name="website" attributeType="String"/>
+    <entity name="UserDetails" representedClassName="UserDetails" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address"/>
+        <relationship name="company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company"/>
+        <relationship name="post" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post"/>
+        <relationship name="todo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ToDo"/>
     </entity>
     <elements>
-        <element name="UserDeatils" positionX="-63" positionY="-18" width="128" height="119"/>
         <element name="Address" positionX="-54" positionY="36" width="128" height="89"/>
         <element name="Company" positionX="-36" positionY="54" width="128" height="74"/>
-        <element name="ToDo" positionX="-18" positionY="72" width="128" height="74"/>
         <element name="Post" positionX="0" positionY="90" width="128" height="74"/>
+        <element name="ToDo" positionX="-18" positionY="72" width="128" height="74"/>
+        <element name="UserDetails" positionX="-27" positionY="90" width="128" height="104"/>
     </elements>
 </model>

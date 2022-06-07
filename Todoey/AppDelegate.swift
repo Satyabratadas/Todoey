@@ -29,7 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            
         }
         self.window?.makeKeyAndVisible()
+       
+        
         return true
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        self.saveContext()
     }
 
     // MARK: UISceneSession Lifecycle
@@ -55,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "Todoey")
+        let container = NSPersistentContainer(name: "dataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -71,6 +77,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
+            let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+            print(paths[0])
         })
         return container
     }()

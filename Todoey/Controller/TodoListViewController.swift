@@ -35,8 +35,8 @@ class TodoListViewController: UIViewController,UITableViewDataSource, UITableVie
         let url = userTodoRequest()
         self.dataManager.userRequest(url: url) { result in
             for item in result {
-                let todoItem = ToDo(userId: item["userId"] as! Int, tid: item["id"] as! Int, title: item["title"] as? String, complete: item["completed"] as? Bool)
-                self.todoDetails.append(todoItem)
+//                let todoItem = ToDo(userId: item["userId"] as! Int, tid: item["id"] as! Int, title: item["title"] as? String, complete: item["completed"] as? Bool)
+//                self.todoDetails.append(todoItem)
             }
             
             DispatchQueue.main.async {

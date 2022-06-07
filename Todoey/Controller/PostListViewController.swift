@@ -8,7 +8,7 @@
 import UIKit
 
 class PostListViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
-    var users : UserDetails?
+//    var users : UserDetails?
     var UserId : Int = 0
     let urlString = "https://jsonplaceholder.typicode.com/posts"
     let datamanager = dataModelManager()
@@ -32,15 +32,15 @@ class PostListViewController: UIViewController,UITableViewDataSource, UITableVie
         self.navigationItem.leftBarButtonItem = backBarButtonItem
         
         
-        self.navigationItem.title = users?.name
+//        self.navigationItem.title = users?.name
         let url = userPostRequest()
 //        print(url)
         
 //      Api service call and get response
         self.datamanager.userRequest(url: url) { result in
             for item in result {
-                let postDetailsItem = Post(userId: item["userId"] as! Int, pid: item["id"] as! Int, title: item["title"] as? String, body: item["body"] as? String)
-                self.postDetails.append(postDetailsItem)
+//                let postDetailsItem = Post(userId: item["userId"] as! Int, pid: item["id"] as! Int, title: item["title"] as? String, body: item["body"] as? String)
+//                self.postDetails.append(postDetailsItem)
 
             }
             DispatchQueue.main.async {
@@ -67,7 +67,7 @@ class PostListViewController: UIViewController,UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let newVc = self.storyboard!.instantiateViewController(withIdentifier: "PostDetailsView") as! PostDetailsViewController
 
-        newVc.titleName = (users?.name)!
+//        newVc.titleName = (users?.name)!
         newVc.PostDetails = postDetails[indexPath.row]
         self.navigationController?.pushViewController(newVc, animated:true)
         

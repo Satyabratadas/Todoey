@@ -8,7 +8,7 @@
 import UIKit
 
 class UserDetailsViewController: UIViewController {
-    var userDetails : UserDetails?
+//    var userDetails : UserDetails?
     
     @IBOutlet weak var userDetailsText: UILabel!
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class UserDetailsViewController: UIViewController {
         userDetailsText.lineBreakMode = .byWordWrapping
         userDetailsText.numberOfLines = 0
         
-        userDetailsText.text = "UserName:   \((userDetails?.username)!)\n  \nEmail:   \((userDetails?.email)!)\n  \nAddress:   \((userDetails?.address.street)!),\((userDetails?.address.suite)!)\n  \nCity:   \((userDetails?.address.city)!)\n  \nZipcode:    \((userDetails?.address.zipcode)!)\n  \nPhone:   \((userDetails?.phone)!)\n  \nWebsite:   \((userDetails?.website)!)\n  \nCompany:   \((userDetails?.company.cname)!)\n  \nCP:   \((userDetails?.company.catchPhrase)!)\n  \nBs:   \((userDetails?.company.bs)!)"
+//        userDetailsText.text = "UserName:   \((userDetails?.username)!)\n  \nEmail:   \((userDetails?.email)!)\n  \nAddress:   \((userDetails?.address.street)!),\((userDetails?.address.suite)!)\n  \nCity:   \((userDetails?.address.city)!)\n  \nZipcode:    \((userDetails?.address.zipcode)!)\n  \nPhone:   \((userDetails?.phone)!)\n  \nWebsite:   \((userDetails?.website)!)\n  \nCompany:   \((userDetails?.company.cname)!)\n  \nCP:   \((userDetails?.company.catchPhrase)!)\n  \nBs:   \((userDetails?.company.bs)!)"
         
     }
     
@@ -39,19 +39,19 @@ class UserDetailsViewController: UIViewController {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let vc  = mainStoryboard.instantiateViewController(withIdentifier: "TodoListViewController") as! TodoListViewController
         vc.modalPresentationStyle = .fullScreen
-        vc.UserIdtodo = (userDetails?.id)!
+//        vc.UserIdtodo = (userDetails?.id)!
 
         show(vc, sender: self)
         
-        vc.todoTitle = (userDetails?.name)!
+//        vc.todoTitle = (userDetails?.name)!
 
     }
     
     @IBAction func postPressAction(_ sender: UIButton) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let vc2  = mainStoryboard.instantiateViewController(withIdentifier: "PostList") as! PostListViewController
-        vc2.UserId = (userDetails?.id)!
-        vc2.users = userDetails
+//        vc2.UserId = (userDetails?.id)!
+//        vc2.users = userDetails
         vc2.modalPresentationStyle = .fullScreen
         show(vc2, sender: self)
         

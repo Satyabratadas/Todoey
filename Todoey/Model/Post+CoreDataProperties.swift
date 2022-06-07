@@ -2,7 +2,7 @@
 //  Post+CoreDataProperties.swift
 //  Todoey
 //
-//  Created by ARC on 02/06/22.
+//  Created by ARC on 06/06/22.
 //
 //
 
@@ -16,9 +16,9 @@ extension Post {
         return NSFetchRequest<Post>(entityName: "Post")
     }
 
+    @NSManaged public var body: String?
     @NSManaged public var pid: Int32
     @NSManaged public var title: String?
-    @NSManaged public var body: String?
 
 }
 

@@ -2,7 +2,7 @@
 //  Company+CoreDataProperties.swift
 //  Todoey
 //
-//  Created by ARC on 02/06/22.
+//  Created by ARC on 06/06/22.
 //
 //
 
@@ -16,9 +16,9 @@ extension Company {
         return NSFetchRequest<Company>(entityName: "Company")
     }
 
-    @NSManaged public var cname: String?
-    @NSManaged public var catchPhrase: String?
     @NSManaged public var bs: String?
+    @NSManaged public var catchPhrase: String?
+    @NSManaged public var cname: String?
 
 }
 
