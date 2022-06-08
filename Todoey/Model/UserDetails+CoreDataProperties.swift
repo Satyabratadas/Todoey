@@ -2,7 +2,7 @@
 //  UserDetails+CoreDataProperties.swift
 //  Todoey
 //
-//  Created by ARC on 07/06/22.
+//  Created by ARC on 08/06/22.
 //
 //
 
@@ -17,10 +17,15 @@ extension UserDetails {
     }
 
     @NSManaged public var id: Int32
-    @NSManaged public var todo: ToDo?
-    @NSManaged public var post: Post?
+    @NSManaged public var name: String?
+    @NSManaged public var username: String?
+    @NSManaged public var email: String?
+    @NSManaged public var phone: String?
+    @NSManaged public var website: String?
     @NSManaged public var address: Address?
     @NSManaged public var company: Company?
+    @NSManaged public var post: Post?
+    @NSManaged public var todo: ToDo?
 
 }
 

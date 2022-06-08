@@ -2,7 +2,7 @@
 //  Address+CoreDataProperties.swift
 //  Todoey
 //
-//  Created by ARC on 06/06/22.
+//  Created by ARC on 08/06/22.
 //
 //
 
@@ -20,6 +20,7 @@ extension Address {
     @NSManaged public var street: String?
     @NSManaged public var suite: String?
     @NSManaged public var zipcode: String?
+    @NSManaged public var ofUserDetails: UserDetails?
 
 }
 

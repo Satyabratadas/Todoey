@@ -2,7 +2,7 @@
 //  ToDo+CoreDataProperties.swift
 //  Todoey
 //
-//  Created by ARC on 06/06/22.
+//  Created by ARC on 08/06/22.
 //
 //
 
@@ -19,6 +19,7 @@ extension ToDo {
     @NSManaged public var complete: Bool
     @NSManaged public var tid: Int32
     @NSManaged public var title: String?
+    @NSManaged public var ofUserDetalis: UserDetails?
 
 }
 
