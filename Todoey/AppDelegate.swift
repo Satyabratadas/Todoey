@@ -77,8 +77,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
-            let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-            print(paths[0])
+            let directory = NSPersistentContainer.defaultDirectoryURL()
+
+            let url = directory.appendingPathComponent("dataModel" + ".sqlite")
+
+            print(url)
         })
         return container
     }()
