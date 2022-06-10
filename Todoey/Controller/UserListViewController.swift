@@ -13,7 +13,7 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
     
     let url = "https://jsonplaceholder.typicode.com/users"
     let datamanager = dataModelManager()
-//    var details: [UserDetails] = []
+    var details: [UserDetails] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     @IBOutlet weak var userListTableView: UITableView!
@@ -39,16 +39,12 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
                 let newEntity: NSEntityDescription = NSEntityDescription.entity(forEntityName: "UserDetails", in: self.context)!      //entity initialization with context
                 let addressEntity: NSEntityDescription = NSEntityDescription.entity(forEntityName: "Address", in: self.context)!
                 let companyEntity: NSEntityDescription = NSEntityDescription.entity(forEntityName: "Company", in: self.context)!
-
-
                 for item in result {
-                    
-                   let count = self.fetchData(id: item["id"] as? Int ?? 0)
+                   let count = self.filterFetchData(id: item["id"] as? Int ?? 0)
                     if count == 0 {
                         let insertItem = UserDetails(entity: newEntity, insertInto: self.context)                     //set entity attribute value
                         let addressItem = Address(entity: addressEntity, insertInto: self.context)                    //set entity attribute value
                         let companyItem = Company(entity: companyEntity, insertInto: self.context)                    //set entity attribute value
-
                         let address = item["address"] as? [String:Any]
                         let company = item["company"] as? [String:Any]
                         insertItem.id = item["id"] as? Int32 ?? 0
@@ -57,33 +53,24 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
                         insertItem.email = item["email"] as? String ?? ""
                         insertItem.phone = item["phone"] as? String ?? ""
                         insertItem.website = item["website"] as? String ?? ""
-
                         addressItem.city = address?["city"] as? String ?? ""
                         addressItem.street = address?["street"] as? String ?? ""
                         addressItem.suite = address?["suite"] as? String ?? ""
                         addressItem.zipcode = address?["zipcode"] as? String ?? ""
+                        addressItem.user = insertItem
                         insertItem.address = addressItem
-
                         companyItem.bs = company?["bs"] as? String ?? ""
                         companyItem.catchPhrase = company?["catchPhrase"] as? String ?? ""
                         companyItem.cname = company?["name"] as? String ?? ""
                         insertItem.company = companyItem
                     }
-                       
-
-
-
 //                    print(item)
-//
-//
-//
 //                    let address = item["address"] as? [String:Any]
 //                    let addressList = Address(street: address?["street"] as? String  , suite:address?["suite"] as? String , city:address?["city"] as? String , zipcode: address?["zipcode"] as? String )
 //                    let company = item["company"] as? [String:Any]
 //                    let companyList = Company(cname: company?["name"] as? String, catchPhrase: company?["catchPhrase"] as? String, bs: company?["bs"] as? String)
 //                    let detailsItem = UserDetails(id: item["id"] as! Int, name: item["name"] as? String, username: item["username"] as? String, email: item["email"] as? String, address: addressList , phone: item["phone"] as? String, website: item["website"] as? String, company: companyList)
 //                    self.details.append(detailsItem)
-
                 }
                 do{
                     try self.context.save()
@@ -91,25 +78,25 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
                     print(error)
                 }
             }
+        sleep(10)
+        details = fetchUserDetails()
+//        fetchAddressData()
 //
 //
 //
-//            DispatchQueue.main.async {
-//                self.userListTableView.reloadData()
-//            }
+            DispatchQueue.main.async {
+                self.userListTableView.reloadData()
+            }
 //    }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.details.count;
-        
-       return 0
+        return details.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell( withIdentifier: "UserListCell", for: indexPath) as! UserListCell
-//        cell.selectionStyle = .none
-//        cell.userName.text =
+        cell.selectionStyle = .none
+        cell.userName.text = details[indexPath.row].name
         return cell
 
     }
@@ -119,9 +106,8 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let newVc = self.storyboard!.instantiateViewController(withIdentifier: "UserDetailsViewController") as! UserDetailsViewController
-
-//        newVc.title = details[indexPath.row].name
-//        newVc.userDetails = details[indexPath.row]
+        newVc.title = details[indexPath.row].name
+        newVc.userDetails = details[indexPath.row]
         self.navigationController?.pushViewController(newVc, animated:true)
 
     }
@@ -133,7 +119,7 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
             show(vc, sender: self)
         }
     
-    func fetchData(id:Int) -> Int {
+    func filterFetchData(id:Int) -> Int {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserDetails")
         fetchRequest.predicate = NSPredicate(format: "id == %@",NSNumber(value: id))
         var results: [UserDetails]?
@@ -144,7 +130,21 @@ class UserListViewController: UIViewController,UITableViewDataSource, UITableVie
         }
         return results?.count ?? 0
     }
+    func fetchUserDetails() -> [UserDetails] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserDetails")
+        var results: [UserDetails]?
+        do {
+            results = try context.fetch(fetchRequest) as? [UserDetails]
+            print((results![0].address?.street) as Any)
+        }catch let err as NSError {
+            print(err.debugDescription)
+            
+        }
+        print(results as Any)
+        return results!
+    }
     
+  
     
     
 }

@@ -19,7 +19,7 @@ extension Company {
     @NSManaged public var bs: String?
     @NSManaged public var catchPhrase: String?
     @NSManaged public var cname: String?
-    @NSManaged public var ofUserDetails: UserDetails?
+    @NSManaged public var user: UserDetails?
 
 }
 
