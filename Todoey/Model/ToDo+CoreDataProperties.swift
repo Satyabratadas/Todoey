@@ -18,8 +18,9 @@ extension ToDo {
 
     @NSManaged public var complete: Bool
     @NSManaged public var tid: Int32
+    @NSManaged public var userId: Int32
     @NSManaged public var title: String?
-    @NSManaged public var ofUserDetalis: UserDetails?
+    @NSManaged public var user: UserDetails?
 
 }
 

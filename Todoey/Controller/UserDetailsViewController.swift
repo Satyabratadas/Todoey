@@ -31,14 +31,12 @@ class UserDetailsViewController: UIViewController {
         
         let backBarButtonItem = UIBarButtonItem(title:"< Back", style: .plain, target: self, action: #selector(backButton(sender:)))
         self.navigationItem.leftBarButtonItem = backBarButtonItem
-        
         fetchAddressData()
         fetchCompanyData()
         userDetailsText.lineBreakMode = .byWordWrapping
         userDetailsText.numberOfLines = 0
         //show the data from data base which is stored from api
         userDetailsText.text = "UserName:   \((userDetails?.username)!)\n  \nEmail:   \((userDetails?.email)!)\n  \nAddress:   \((address?.street)!),\((address?.suite)!)\n  \nCity:   \((address?.city)!)\n  \nZipcode:    \((address?.zipcode)!)\n  \nPhone:   \((userDetails?.phone)!)\n  \nWebsite:   \((userDetails?.website)!)\n  \nCompany:   \((company?.cname)!)\n  \nCP:   \((company?.catchPhrase)!)\n  \nBs:   \((company?.bs)!)"
-        
         //show the data direct from api
         //        userDetailsText.text = "UserName:   \((userDetails?.username)!)\n  \nEmail:   \((userDetails?.email)!)\n  \nAddress:   \((userDetails?.address.street)!),\((userDetails?.address.suite)!)\n  \nCity:   \((userDetails?.address.city)!)\n  \nZipcode:    \((userDetails?.address.zipcode)!)\n  \nPhone:   \((userDetails?.phone)!)\n  \nWebsite:   \((userDetails?.website)!)\n  \nCompany:   \((userDetails?.company.cname)!)\n  \nCP:   \((userDetails?.company.catchPhrase)!)\n  \nBs:   \((userDetails?.company.bs)!)"
         
@@ -71,20 +69,18 @@ class UserDetailsViewController: UIViewController {
     @IBAction func todoPressAction(_ sender: UIButton) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let vc  = mainStoryboard.instantiateViewController(withIdentifier: "TodoListViewController") as! TodoListViewController
+        vc.UserIdtodo = Int((userDetails?.id)!)
+        vc.users = userDetails
         vc.modalPresentationStyle = .fullScreen
-//        vc.UserIdtodo = (userDetails?.id)!
         show(vc, sender: self)
-//        vc.todoTitle = (userDetails?.name)!
     }
-    
     @IBAction func postPressAction(_ sender: UIButton) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let vc2  = mainStoryboard.instantiateViewController(withIdentifier: "PostList") as! PostListViewController
-//        vc2.UserId = (userDetails?.id)!
-//        vc2.users = userDetails
+        vc2.UserId = Int((userDetails?.id)!)
+        vc2.users = userDetails
         vc2.modalPresentationStyle = .fullScreen
         show(vc2, sender: self)
-        
     }
     @objc func logoutBtnaction(sender: UIBarButtonItem) {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)

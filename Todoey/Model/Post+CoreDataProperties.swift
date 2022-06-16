@@ -18,8 +18,9 @@ extension Post {
 
     @NSManaged public var body: String?
     @NSManaged public var pid: Int32
+    @NSManaged public var userId: Int32
     @NSManaged public var title: String?
-    @NSManaged public var ofUserDetails: UserDetails?
+    @NSManaged public var user: UserDetails?
 
 }
 
