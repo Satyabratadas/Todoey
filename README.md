@@ -6,8 +6,6 @@ It's an IOS application project. In this project there are three sample APIs is 
 
 > API
 
->Swift UI
-
 **Launch**
 
 *Clone the project*
